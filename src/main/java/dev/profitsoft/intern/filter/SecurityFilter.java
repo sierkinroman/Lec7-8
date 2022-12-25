@@ -22,7 +22,9 @@ public class SecurityFilter implements Filter {
         if (request.getSession().getAttribute("authUser") != null) {
             chain.doFilter(req, resp);
         } else {
-            ((HttpServletResponse) resp).sendRedirect(request.getContextPath() + "/login");
+            HttpServletResponse response = (HttpServletResponse) resp;
+            response.setStatus(HttpServletResponse.SC_FOUND);
+            response.sendRedirect(request.getContextPath() + "/login");
         }
 
     }
