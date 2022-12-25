@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>Login</title>
 </head>
-<body class="bg-light">
+<body class="bg-white">
     <div class="container d-flex align-items-center justify-content-center" style="height: 100vh">
-        <form action="${pageContext.request.contextPath}/login" method="POST" class="mx-auto col-5 border p-5">
+        <form action="${pageContext.request.contextPath}/login" method="POST" class="mx-auto col-5 border p-5 bg-light">
             <div class="form-group">
                 <label for="username">Username:</label>
                 <input type="text" name="username" id="username" class="form-control" autofocus="autofocus"/>
