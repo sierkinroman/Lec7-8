@@ -3,7 +3,9 @@ package dev.profitsoft.intern.controller;
 import dev.profitsoft.intern.model.User;
 import dev.profitsoft.intern.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -43,7 +45,7 @@ public class LoginController {
             }
         }
 
-        return new ModelAndView("login")
+        return new ModelAndView("login", HttpStatusCode.valueOf(HttpServletResponse.SC_UNAUTHORIZED))
                 .addObject("isBadCredentials", true);
     }
 }
