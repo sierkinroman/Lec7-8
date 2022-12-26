@@ -21,7 +21,7 @@ public class LoginFilter implements Filter {
         if (request.getSession().getAttribute("authUser") == null) {
             chain.doFilter(req, resp);
         } else {
-            ((HttpServletResponse) resp).sendError(403, "Authenticated user has no access to /login");
+            ((HttpServletResponse) resp).sendError(HttpServletResponse.SC_FORBIDDEN, "Authenticated user has no access to /login");
         }
     }
 
