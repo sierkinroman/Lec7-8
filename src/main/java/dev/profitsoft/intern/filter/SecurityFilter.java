@@ -18,15 +18,21 @@ public class SecurityFilter implements Filter {
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain)
             throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) req;
+        HttpServletResponse response = (HttpServletResponse) resp;
 
         if (request.getSession().getAttribute("authUser") != null) {
+            disableCaching(response);
             chain.doFilter(req, resp);
         } else {
-            HttpServletResponse response = (HttpServletResponse) resp;
             response.setStatus(HttpServletResponse.SC_FOUND);
             response.sendRedirect(request.getContextPath() + "/login");
         }
+    }
 
+    private void disableCaching(HttpServletResponse response) {
+        response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
+        response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
+        response.setDateHeader("Expires", 0);
     }
 
 }
