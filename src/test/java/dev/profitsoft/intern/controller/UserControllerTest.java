@@ -1,5 +1,6 @@
 package dev.profitsoft.intern.controller;
 
+import dev.profitsoft.intern.dto.UserInfoDto;
 import dev.profitsoft.intern.model.User;
 import dev.profitsoft.intern.service.UserService;
 import org.junit.jupiter.api.Test;
@@ -35,10 +36,10 @@ public class UserControllerTest {
 
     @Test
     public void showUsersPage() throws Exception {
-        Set<User> users = Set.of(
-                new User("dru", "123456", "Andriy"),
-                new User("roma", "123", "Roma"),
-                new User("dmtr", "1234", "Dmitro")
+        Set<UserInfoDto> users = Set.of(
+                new UserInfoDto("dru", "Andriy"),
+                new UserInfoDto("roma", "Roma"),
+                new UserInfoDto("dmtr", "Dmitro")
         );
 
         Mockito.doReturn(users)

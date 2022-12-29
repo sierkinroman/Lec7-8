@@ -1,5 +1,6 @@
 package dev.profitsoft.intern.service;
 
+import dev.profitsoft.intern.dto.UserInfoDto;
 import dev.profitsoft.intern.model.User;
 
 import java.util.Optional;
@@ -9,6 +10,6 @@ public interface UserService {
 
     Optional<User> findByUsername(String username);
 
-    Set<User> findAll();
+    Set<UserInfoDto> findAll();
 
 }
