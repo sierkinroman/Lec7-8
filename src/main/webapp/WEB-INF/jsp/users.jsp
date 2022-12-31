@@ -7,7 +7,10 @@
     </jsp:include>
 </head>
 <body class="bg-light">
-    <jsp:include page="fragments/menu.jsp"/>
+    <jsp:include page="fragments/menu.jsp">
+        <jsp:param name="linkTo" value="hello"/>
+        <jsp:param name="linkToTitle" value="Homepage"/>
+    </jsp:include>
     <div class="container my-5">
         <h1 class="text-center">List of users:</h1>
         <table class="table table-striped table-bordered mt-4">
